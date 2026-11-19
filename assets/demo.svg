@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .bar { fill: #161b22; }
+      .border { stroke: #30363d; stroke-width: 1; fill: none; }
+      .card { fill: #161b22; stroke: #30363d; stroke-width: 1; rx: 6px; }
+      .txt { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'JetBrains Mono', 'Fira Code', monospace; font-size: 13px; fill: #e6edf3; }
+      .txt-dim { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'JetBrains Mono', 'Fira Code', monospace; font-size: 13px; fill: #8b949e; }
+      .txt-cyan { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'JetBrains Mono', 'Fira Code', monospace; font-size: 13px; fill: #00e5ff; font-weight: bold; }
+      .txt-blue { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'JetBrains Mono', 'Fira Code', monospace; font-size: 13px; fill: #58a6ff; font-weight: bold; }
+      .txt-title { font-family: monospace; font-size: 12px; fill: #00e5ff; font-weight: bold; letter-spacing: 1px; }
+      .txt-header { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace; font-size: 12px; fill: #8b949e; }
+      .footer-key { font-family: monospace; font-size: 11px; fill: #0d1117; font-weight: bold; }
+      .footer-lbl { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace; font-size: 12px; fill: #8b949e; }
+    </style>
+  </defs>
+
+  <!-- Terminal Window Background -->
+  <rect width="1100" height="640" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="1.5" />
+
+  <!-- Top Title Bar -->
+  <path d="M0 10 Q0 0 10 0 L1090 0 Q1100 0 1100 10 L1100 38 L0 38 Z" fill="#161b22" />
+  <circle cx="22" cy="19" r="6" fill="#ff5f56" />
+  <circle cx="42" cy="19" r="6" fill="#ffbd2e" />
+  <circle cx="62" cy="19" r="6" fill="#27c93f" />
+  <text x="550" y="24" text-anchor="middle" class="txt-header">ANIX // CTX — Context Packager</text>
+
+  <!-- Split Pane Layout -->
+  <!-- Left Column: File Tree -->
+  <text x="28" y="68" class="txt-title">PROJECT FILES</text>
+  <rect x="20" y="80" width="515" height="510" class="card" />
+  
+  <!-- Tree Content -->
+  <g transform="translate(35, 110)">
+    <!-- Root -->
+    <text y="0" class="txt-cyan">▼</text>
+    <text x="18" y="0" class="txt" font-weight="bold">anix-ctx/</text>
+
+    <!-- Branch src -->
+    <text x="16" y="28" class="txt-cyan">[x]</text>
+    <text x="46" y="28" class="txt">src/</text>
+    <text x="85" y="28" class="txt-dim">(5/5)</text>
+
+    <!-- src/anix_ctx -->
+    <text x="36" y=\"54\" class="txt-cyan">[x]</text>
+    <text x="66" y="54" class="txt">anix_ctx/</text>
+    <text x="145" y="54" class="txt-dim">(5/5)</text>
+
+    <!-- Files inside anix_ctx -->
+    <text x="56" y="80" class="txt-cyan">[x]</text>
+    <text x="86" y="80" class="txt">__init__.py</text>
+    <text x="180" y="80" class="txt-dim">(140 B / ~35 tok)</text>
+
+    <text x="56" y="106" class="txt-cyan">[x]</text>
+    <text x="86" y="106" class="txt">cli.py</text>
+    <text x="140" y="106" class="txt-dim">(2.7 KB / ~680 tok)</text>
+
+    <text x="56" y="132" class="txt-cyan">[x]</text>
+    <text x="86" y="132" class="txt">formatter.py</text>
+    <text x="190" y="132" class="txt-dim">(5.8 KB / ~1,450 tok)</text>
+
+    <text x="56" y="158" class="txt-cyan">[x]</text>
+    <text x="86" y="158" class="txt">scanner.py</text>
+    <text x="175" y="158" class="txt-dim">(6.1 KB / ~1,520 tok)</text>
+
+    <text x="56" y="184" class="txt-cyan">[x]</text>
+    <text x="86" y="184" class="txt">tui.py</text>
+    <text x="140" y="184" class="txt-dim">(9.8 KB / ~2,450 tok)</text>
+
+    <!-- Root files -->
+    <text x="16" y="214" class="txt-cyan">[x]</text>
+    <text x="46" y="214" class="txt">.gitignore</text>
+    <text x="135" y="214" class="txt-dim">(680 B / ~170 tok)</text>
+
+    <text x="16" y="240" class="txt-cyan">[x]</text>
+    <text x="46" y="240" class="txt">LICENSE</text>
+    <text x="115" y="240" class="txt-dim">(1.1 KB / ~275 tok)</text>
+
+    <text x="16" y="266" class="txt-cyan">[x]</text>
+    <text x="46" y="266" class="txt">pyproject.toml</text>
+    <text x="165" y="266" class="txt-dim">(1.2 KB / ~300 tok)</text>
+
+    <text x="16" y="292" class="txt-cyan">[x]</text>
+    <text x="46" y="292" class="txt">README.md</text>
+    <text x="135" y="292" class="txt-dim">(3.5 KB / ~875 tok)</text>
+
+    <!-- Unchecked example file -->
+    <text x="16" y="322" class="txt-dim">[ ]</text>
+    <text x="46" y="322" class="txt-dim">tests/test_cli.py (ignored)</text>
+  </g>
+
+  <!-- Right Column: Live Stats & Preview -->
+  <text x="563" y="68" class="txt-title">LIVE STATS</text>
+  <rect x="555" y="80" width="525" height="185" class="card" />
+  
+  <g transform="translate(575, 110)">
+    <text y="0" class="txt-dim">Selected Files:</text>
+    <text x="130" y="0" class="txt-cyan">9</text>
+    <text x="145" y="0" class="txt-dim">/ 10</text>
+
+    <text y="26" class="txt-dim">Total Characters:</text>
+    <text x="130" y="26" class="txt-blue">31,040</text>
+
+    <text y="52" class="txt-dim">Estimated Tokens:</text>
+    <text x="130" y="52" class="txt-cyan">~7,760</text>
+    <text x="185" y="52" class="txt-dim">(chars // 4)</text>
+
+    <text y="84" class="txt-dim">Top Heaviest Files:</text>
+    <text x="15" y="106" class="txt">• src/anix_ctx/tui.py</text>
+    <text x="210" y="106" class="txt-dim">(~2,450 tok)</text>
+    <text x="15" y="128" class="txt">• src/anix_ctx/scanner.py</text>
+    <text x="235" y="128" class="txt-dim">(~1,520 tok)</text>
+    <text x="15" y="150" class="txt">• src/anix_ctx/formatter.py</text>
+    <text x="250" y="150" class="txt-dim">(~1,450 tok)</text>
+  </g>
+
+  <!-- ASCII Tree Preview Card -->
+  <text x="563" y="290" class="txt-title">ASCII TREE PREVIEW</text>
+  <rect x="555" y="302" width="525" height="288" class="card" />
+  <g transform="translate(575, 330)">
+    <text y="0" class="txt-dim">anix-ctx</text>
+    <text y="22" class="txt-dim">├── src/</text>
+    <text y="44" class="txt-dim">│   └── anix_ctx/</text>
+    <text y="66" class="txt-dim">│       ├── __init__.py</text>
+    <text y="88" class="txt-dim">│       ├── cli.py</text>
+    <text y="110" class="txt-dim">│       ├── formatter.py</text>
+    <text y="132" class="txt-dim">│       ├── scanner.py</text>
+    <text y="154" class="txt-dim">│       └── tui.py</text>
+    <text y="176" class="txt-dim">├── .gitignore</text>
+    <text y="198" class="txt-dim">├── LICENSE</text>
+    <text y="220" class="txt-dim">├── pyproject.toml</text>
+    <text y="242" class="txt-dim">└── README.md</text>
+  </g>
+
+  <!-- Bottom Footer Toolbar -->
+  <path d="M0 602 L1100 602 L1100 630 Q1100 640 1090 640 L10 640 Q0 640 0 630 Z" fill="#161b22" />
+  <g transform="translate(25, 624)">
+    <rect x="0" y="-14" width="52" height="18" rx="3" fill="#00e5ff" />
+    <text x="6" y="0" class="footer-key">Space</text>
+    <text x="58" y="0" class="footer-lbl">Toggle</text>
+
+    <rect x="125" y="-14" width="22" height="18" rx="3" fill="#00e5ff" />
+    <text x="132" y="0" class="footer-key">a</text>
+    <text x="153" y="0" class="footer-lbl">Toggle All</text>
+
+    <rect x="240" y="-14" width="22" height="18" rx="3" fill="#00e5ff" />
+    <text x="248" y="0" class="footer-key">c</text>
+    <text x="268" y="0" class="footer-lbl">Copy</text>
+
+    <rect x="330" y="-14" width="22" height="18" rx="3" fill="#00e5ff" />
+    <text x="338" y="0" class="footer-key">s</text>
+    <text x="358" y="0" class="footer-lbl">Save</text>
+
+    <rect x="420" y="-14" width="22" height="18" rx="3" fill="#00e5ff" />
+    <text x="428" y="0" class="footer-key">q</text>
+    <text x="448" y="0" class="footer-lbl">Quit</text>
+  </g>
+</svg>

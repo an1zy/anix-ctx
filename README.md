@@ -1,84 +1,102 @@
-# ⚡ anix-ctx
+# ANIX CTX
 
-> Интерактивный упаковщик контекста проекта для LLM (Gemini, ChatGPT, Claude) в тёмном неоновом стиле экосистемы **ANIX**.
+![python](https://img.shields.io/badge/python-3.10%2B-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![PyPI](https://img.shields.io/pypi/v/anix-ctx)](https://pypi.org/project/anix-ctx/) ![status](https://img.shields.io/badge/status-active-success)
 
-Одной командой открывает быстрый TUI, где можно визуально выбрать нужные файлы проекта, увидеть реальный расход токенов и скопировать всё в буфер обмена в идеальном Markdown-формате с ASCII-деревом файлов.
+🇬🇧 English · 🇷🇺 [Русский](README.ru.md)
+
+Interactive terminal context packager for LLMs. Select project files in a dark neon TUI, track estimated token usage in real time, and copy a Markdown document with an ASCII directory tree directly to the clipboard.
+
+<p align="center">
+  <img src="assets/demo.svg" alt="ANIX CTX Demo" width="900">
+</p>
+
+```
+$ anix-ctx . --copy
+[ANIX CTX] Copied 8 files (~8,690 tokens, 34,770 chars) to clipboard!
+```
 
 ---
 
-## ✨ Возможности
+## Features
 
-- **🚀 Мгновенный запуск**: `anix-ctx` в любой папке открывает интерактивный TUI.
-- **🛡 Умная фильтрация**: автоматически игнорирует `.git`, `node_modules`, `__pycache__`, `.venv`, лок-файлы (`package-lock.json`, `poetry.lock`, `uv.lock` и др.), бинарные файлы и любые правила из `.gitignore` / `.ignore`.
-- **⚡ Кэшированная статистика**: переключение чекбоксов не нагружает диск — токены и символы пересчитываются мгновенно из оперативной памяти.
-- **📊 Живая аналитика**: точный подсчёт символов, оценка токенов (`chars // 4`), Top-5 самых тяжёлых файлов и превью ASCII-дерева в реальном времени.
-- **🔒 Защита разметки**: адаптивный динамический fence (минимум ` ```` `) гарантирует, что вложенные блоки кода и `.md` файлы не сломают Markdown.
-- **🌐 Безопасная кодировка**: чтение файлов с `utf-8` и заменой некорректных символов (`errors="replace"`), полная кроссплатформенность (Windows, Linux, macOS).
-- **⚡ Быстрый режим (Headless)**: флаги `--copy` (`-c`) и `-o context.md` для мгновенной сборки контекста без открытия интерфейса.
+- **TUI File Selector:** Interactive tree navigation with keyboard toggles (`Space` on files or entire folders).
+- **Gitignore & Filter Engine:** Automatically excludes `.git`, `node_modules`, `__pycache__`, virtual environments, lockfiles (`package-lock.json`, `poetry.lock`, `uv.lock`), minified assets, and custom `.gitignore` patterns.
+- **Binary & Size Guards:** Drops binary files and skips files larger than 500 KB to prevent token waste.
+- **In-Memory Cache:** File sizes and token estimations are cached on load; toggling files recomputes metrics without disk I/O.
+- **Dynamic Markdown Fencing:** Adaptive backtick fencing prevents nested code blocks from breaking Markdown formatting.
+- **Headless Mode:** CLI flags (`--copy`, `-o context.md`) for instant context generation in scripts and pipelines.
+- **Safe Encoding:** Reads all text files with UTF-8 replacement to avoid decoding crashes on non-standard Windows encodings.
 
 ---
 
-## 📦 Установка
+## Install
+
+Requires Python 3.10+.
 
 ```bash
-# Клонирование или установка в режиме разработки
-git clone https://github.com/anix/anix-ctx.git
+pip install anix-ctx
+```
+
+Or install in editable mode for local development:
+
+```bash
+git clone https://github.com/an1zy/anix-ctx.git
 cd anix-ctx
 pip install -e .
 ```
 
-Либо сборка стандартного wheel:
-
-```bash
-python -m build
-pip install dist/anix_ctx-*.whl
-```
-
 ---
 
-## 🎮 Использование
+## Usage
 
-### 1. Интерактивный TUI (по умолчанию)
+### Interactive TUI
+
+Launch the TUI in the current directory:
 
 ```bash
-# Открыть TUI для текущей директории
 anix-ctx
+```
 
-# Открыть TUI для конкретной папки
+Or specify a target folder:
+
+```bash
 anix-ctx /path/to/project
 ```
 
-#### Горячие клавиши в TUI:
-| Клавиша | Действие |
-| :--- | :--- |
-| `Space` | Переключить выбор текущего файла или всей папки |
-| `Enter` / Клик | Раскрыть/свернуть папку или переключить файл |
-| `a` | Выбрать все / Снять выбор со всех файлов |
-| `c` | Скопировать готовый Markdown-контекст в буфер обмена |
-| `s` | Сохранить контекст в файл `context.md` |
-| `q` | Выйти из программы |
+### Headless CLI Mode
 
----
-
-### 2. Быстрый headless-режим (без TUI)
+Package files without launching the interface:
 
 ```bash
-# Упаковать текущий проект и сразу скопировать в буфер обмена
+# Copy directly to system clipboard
 anix-ctx --copy
 anix-ctx -c
 
-# Упаковать проект в файл context.md
+# Save context to a file
 anix-ctx -o context.md
 
-# Упаковать конкретную подпапку сразу в буфер
+# Package a specific subdirectory into clipboard
 anix-ctx src/ --copy
 ```
 
 ---
 
-## 📋 Формат вывода Markdown
+## Keybindings
 
-Контекст упаковывается в чистую и готовую для промпта структуру:
+| Key | Action |
+| :--- | :--- |
+| `Space` | Toggle selected state of current file or folder |
+| `Enter` / Click | Expand or collapse folder / toggle file |
+| `a` | Select all / Deselect all |
+| `c` | Copy Markdown context to clipboard |
+| `s` | Save context to `context.md` |
+| `q` | Exit application |
+
+---
+
+## Output Format
+
+The copied context contains an ASCII directory tree followed by fenced code blocks with detected language identifiers:
 
 ````markdown
 # Project Context
@@ -93,6 +111,8 @@ anix-ctx
 │       ├── formatter.py
 │       ├── scanner.py
 │       └── tui.py
+├── .gitignore
+├── LICENSE
 ├── pyproject.toml
 └── README.md
 ````
@@ -101,6 +121,9 @@ anix-ctx
 
 ### `pyproject.toml`
 ````toml
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 ...
 ````
 
@@ -112,10 +135,15 @@ anix-ctx
 
 ---
 
-## 🛠 Стек
+## Part of ANIX
 
-- **Python**: 3.10+
-- **TUI Framework**: [Textual](https://github.com/Textualize/textual)
-- **Gitignore Engine**: [PathSpec](https://github.com/cpburnz/python-pathspec)
-- **Clipboard**: [Pyperclip](https://github.com/asweigart/pyperclip)
-- **Лицензия**: MIT (ANIX Ecosystem)
+- **[anixcode](https://github.com/an1zy/anixcode)** — terminal AI coding agent.
+- **[anix-type](https://github.com/an1zy/anix-type)** — context-aware shell autocompletion daemon.
+- **[anix-vault](https://github.com/an1zy/anix-vault)** — local secrets and environment manager.
+- **[anix-snap](https://github.com/an1zy/anix-snap)** — terminal code screenshots.
+
+---
+
+## License
+
+MIT License. Copyright (c) 2026 ANIX.
