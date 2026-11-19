@@ -7,7 +7,7 @@
 Интерактивный консольный упаковщик контекста проекта для LLM (Claude, ChatGPT, Gemini). Позволяет визуально выбирать нужные файлы через TUI, отслеживать расход токенов в реальном времени и копировать готовый Markdown с ASCII-деревом прямо в буфер обмена.
 
 <p align="center">
-  <img src="assets/demo.svg" alt="ANIX CTX Demo" width="900">
+  <img src="assets/preview.png" alt="ANIX CTX Preview" width="900">
 </p>
 
 ```

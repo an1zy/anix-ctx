@@ -7,7 +7,7 @@
 Interactive terminal context packager for LLMs. Select project files in a dark neon TUI, track estimated token usage in real time, and copy a Markdown document with an ASCII directory tree directly to the clipboard.
 
 <p align="center">
-  <img src="assets/demo.svg" alt="ANIX CTX Demo" width="900">
+  <img src="assets/preview.png" alt="ANIX CTX Preview" width="900">
 </p>
 
 ```
