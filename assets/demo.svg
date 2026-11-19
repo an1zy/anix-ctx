@@ -43,7 +43,7 @@
     <text x="85" y="28" class="txt-dim">(5/5)</text>
 
     <!-- src/anix_ctx -->
-    <text x="36" y=\"54\" class="txt-cyan">[x]</text>
+    <text x="36" y="54" class="txt-cyan">[x]</text>
     <text x="66" y="54" class="txt">anix_ctx/</text>
     <text x="145" y="54" class="txt-dim">(5/5)</text>
 
